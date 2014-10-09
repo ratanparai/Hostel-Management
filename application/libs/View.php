@@ -29,7 +29,7 @@ class View
 	 * @param string $filename
 	 * @param string $navigation_controller
 	 * @return bool Shows if the controller is used or not.
-	 */
+	 *
 	private function checkForActiveController($filename, $navigation_controller)
 	{
 		$spilt_filename = explode('/', $filename);
@@ -40,4 +40,5 @@ class View
 		}
 		return false;
 	}
+	*/
 }

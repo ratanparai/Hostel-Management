@@ -53,13 +53,18 @@ class Application
 						}
 					} else {
 						// TODO: implement error check
+						// action doesn't match anything in our predefined action (don't have any method in the controller
+						// to process the action)
 						die('Invalid action');
 					}
 				} else {
-					// default/fallback: call the inde() method of the selected controller.
+					// there is no action provided. like http://example.com/controll/ 
+					// default/fallback: call the index() method of the selected controller.
 					$this->url_controller->index();
 				}
 			} else {
+				// there is no appropiate controller that is requested
+				// TODO: implement error page
 				die("controller doesn't exist.");
 			}
 			

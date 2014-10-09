@@ -26,7 +26,6 @@ class Database extends PDO
 		 * @see http://www.php.net/manual/en/pdostatement.fetch.php
 		 * 
 		 * PDO::ERRMODE_WARNING
-		 *
          * In addition to setting the error code, PDO will emit a traditional E_WARNING message. 
 		 * This setting is useful during debugging/testing, if you just want to see what problems 
 		 * occurred without interrupting the flow of the application.

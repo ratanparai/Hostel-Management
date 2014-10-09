@@ -19,9 +19,11 @@ class Controller
 	{
 		Session::init();
 		
-		// TODO: cookie check
+		// TODO: cookie check, if needed
 		
 		// create databse connection
+		// we call call the database connection from any class that extends this 
+		// "Controller" class
 		//try {
 		//	$this->db = new Database();
 		//} catch (PDOException $e) {
@@ -29,6 +31,8 @@ class Controller
 		//}
 		
 		// create a view object (that does nothing, but provide the view render() method)
+		// we are gonna use this view object to create veiw
+		// TODO: clearify documentation
 		$this->view = new View();
 		
 		
