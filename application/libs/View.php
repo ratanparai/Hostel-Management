@@ -3,7 +3,10 @@
 /**
  * Class View
  * 
- * Provides the methods all view will have
+ * Provides the methods all view will have.
+ * This class is not for extends. Whenever a Controller object is created, the controller 
+ * class's __construct function will create a view object so that the object of the classes that have
+ * controller class as parent can use this "View" class's render method to render the output 
  */
 class View
 {
