@@ -2,9 +2,9 @@
 
 /**
  * Configuration
- * 
+ *
  * For more info about constants please @see http://php.net/manual/en/function.define.php
- * If you want to know why we use "define" instead of "const" 
+ * If you want to know why we use "define" instead of "const"
  * @see http://stackoverflow.com/q/2447791/1114320
  */
 
@@ -21,7 +21,7 @@ ini_set("display_errors", 1);
  * if you are using a port(other than 80),then put this in here, like http://mydomain:8888/subfolder/
  * Note: The trailing slash is important
  */
-define('URL', 'http://localhost/hostel');
+define('URL', 'http://localhost/hostel/');
 
 /**
  * Configuration for: Folders
@@ -73,5 +73,16 @@ define('DB_PASS', 'toor');
 // the hash cost factor, PHP's internal default is 10. You can leave this line
 // commented out until you need another factor then 10.
 // define("HASH_COST_FACTOR", "10");
+
+/**
+ * Configuration for: Error message and notices
+ *
+ * In this project, the error message, notices etc are called "feedback"
+ */
+define("FEEDBACK_EMPTY_USERNAME", "Username field was empty");
+define("FEEDBACK_EMPTY_PASSWORD", "Password field was empty");
+define("FEEDBACK_NO_USER", "No user available in this ID");
+define('FEEDBACK_LOGIN_SUCCESSFUL', "Login Successfull");
+define('FEEDBACK_WRONG_PASSWORD', "Wrong Password");
 
 ?>

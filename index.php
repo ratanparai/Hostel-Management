@@ -4,7 +4,7 @@
  * Project Title: Hostel Management System
  * Project Author: Ratan Sunder Parai
  * Email: ratanparai@gmail.com
- * 
+ *
  * @author Ratan Sunder Parai
  * @link http://twitter.com/ratanparai
  * @version 1.0
@@ -18,5 +18,4 @@ require 'application/config/config.php';
 require 'application/config/autoload.php';
 
 // start the application
-// TODO: start the application after writing application class
 $app = new Application();
