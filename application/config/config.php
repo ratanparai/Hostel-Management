@@ -17,7 +17,8 @@ ini_set("display_errors", 1);
 
 /**
  * Configuration for: Base URL
- * This is the base url of our app. if you go live with the app, put your full domain name here.
+ * This is the base url of our app.
+ * if you go live with the app, put your full domain name here.
  * if you are using a port(other than 80),then put this in here, like http://mydomain:8888/subfolder/
  * Note: The trailing slash is important
  */
@@ -25,7 +26,8 @@ define('URL', 'http://localhost/hostel/');
 
 /**
  * Configuration for: Folders
- * Here we define where our folders are. There is no need to change this part unless you have renamed them.
+ * Here we define where our folders are.
+ * There is no need to change this part unless you have renamed them.
  */
 define('LIBS_PATH', 'application/libs/');
 define('CONTROLLERS_PATH', 'application/controllers/');
@@ -47,7 +49,6 @@ define('DB_USER', 'root');
 // password for the above user
 define('DB_PASS', 'toor');
 
-
 /**
  * Configuration for: Hashing strength
  * This is the place where you define the strength of your password hashing/salting
@@ -67,6 +68,7 @@ define('DB_PASS', 'toor');
  * Don't change this if you don't know what you do.
  *
  * To get more information about the best cost factor please have a look here
+ * 
  * @see http://stackoverflow.com/q/4443476/1114320
  */
 

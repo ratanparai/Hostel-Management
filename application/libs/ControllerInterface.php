@@ -7,8 +7,7 @@
  */
 interface ControllerInterface
 {
-
-	// every webpage should have it's own index page.
-	public function index();
-
+    
+    // every webpage should have it's own index page.
+    public function index();
 }

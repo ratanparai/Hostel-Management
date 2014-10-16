@@ -11,78 +11,76 @@
  */
 class Controller
 {
+    
+    // Testing private db object
+    function __construct()
+    {
+        Session::init();
+        
+        // TODO: cookie check, if needed
+        
+        // create databse connection
+        // we call call the database connection from any class that extends this
+        // "Controller" class
+        try {
+            $this->db = new Database();
+        } catch (PDOException $e) {
+            die('Database connection could not be established.');
+        }
+        
+        // create a view object (that does nothing, but provide the view render() method)
+        // we are gonna use this view object to create veiw
+        // TODO: clearify documentation
+        $this->view = new View();
+    }
 
-	// Testing private db object
+    /**
+     * Load's the model with the given name
+     * 
+     * @param string $name
+     *            Name of the model, first letter capital
+     * @return object Newly created model object
+     */
+    public function loadModel($name)
+    {
+        $path = MODELS_PATH . strtolower($name) . '_model.php';
+        
+        if (file_exists($path)) {
+            // include the model
+            require $path;
+            
+            /**
+             * All model class name is like "ExampleModel"
+             */
+            $modelName = ucfirst(strtolower($name)) . 'Model';
+            
+            // return the new model object while passing the database connection to the model
+            return new $modelName($this->db);
+        }
+    }
 
-
-	function __construct()
-	{
-		Session::init();
-
-		// TODO: cookie check, if needed
-
-		// create databse connection
-		// we call call the database connection from any class that extends this
-		// "Controller" class
-		try {
-			$this->db = new Database();
-		} catch (PDOException $e) {
-			die('Database connection could not be established.');
-		}
-
-		// create a view object (that does nothing, but provide the view render() method)
-		// we are gonna use this view object to create veiw
-		// TODO: clearify documentation
-		$this->view = new View();
-
-
-	}
-
-	/**
-	 * Load's the model with the given name
-	 * @param string $name Name of the model, first letter capital
-	 * @return object Newly created model object
-	 */
-	public function loadModel($name)
-	{
-		$path = MODELS_PATH . strtolower($name) . '_model.php';
-
-		if(file_exists($path)) {
-			// include the model
-			require $path;
-
-			/**
-			 * All model class name is like "ExampleModel"
-			 */
-			$modelName = ucfirst(strtolower($name)) . 'Model';
-
-			// return the new model object while passing the database connection to the model
-			return new $modelName($this->db);
-		}
-
-	}
-
-	/**
-	 * Sample output to json formate . This is still in test mode. need more work
-	 * @return string
-	 */
-	public function generateErrorJson()
-	{
-		$feedback = array();
-
-
-		foreach ($_SESSION['feedback_negative'] as $feedbackNegative) {
-			$feedback[] = array("message" => $feedbackNegative);
-		}
-
-		$return = array(
-			"errors" => $feedback
-		);
-
-		$_SESSION['feedback_negative'] = null;
-
-		return json_encode($return);
-
-	}
-
+    /**
+     * Sample output to json formate .
+     * This is still in test mode. need more work
+     * 
+     * @return string
+     */
+    public function generateErrorJson()
+    {
+        $feedback = array();
+        
+        foreach ($_SESSION['feedback_negative'] as $feedbackNegative) {
+            $feedback[] = array(
+                "message" => $feedbackNegative
+            );
+        }
+        
+        $return = array(
+            "errors" => $feedback
+        );
+        
+        $_SESSION['feedback_negative'] = null;
+        
+        return json_encode($return);
+    }
 }

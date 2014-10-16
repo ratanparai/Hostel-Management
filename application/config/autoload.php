@@ -12,19 +12,19 @@
  *
  * @todo Need to update for PSR-4 .
  */
-function autoload($class) {
-	// if file does exits in LIBS_PATH folder [set in config/config.php]
-	if (file_exists(LIBS_PATH . $class . ".php")) {
-		require LIBS_PATH . $class . ".php";
-	} else {
+function autoload($class)
+{
+    // if file does exits in LIBS_PATH folder [set in config/config.php]
+    if (file_exists(LIBS_PATH . $class . ".php")) {
+        require LIBS_PATH . $class . ".php";
+    } else {
 
-		/**
-		 * For development purpose using plain error.
-		 * TODO: Replace with Exception handling with error code.
-		 */
-		exit('The file ' . $class . '.php is missing inthe libs folder');
-
-	}
+        /**
+         * For development purpose using plain error.
+         * TODO: Replace with Exception handling with error code.
+         */
+        exit('The file ' . $class . '.php is missing inthe libs folder');
+    }
 }
 
 /**
