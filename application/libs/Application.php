@@ -8,26 +8,31 @@ class Application
 {
 
     /**
+     *
      * @var null The controller part of the URL
      */
     private $url_controller;
 
     /**
+     *
      * @var null The method part (of the above controller) of the URL
      */
     private $url_action;
 
     /**
+     *
      * @var null Parameter one of the URL *
      */
     private $url_parameter_1;
 
     /**
+     *
      * @var null Parameter two of the URL *
      */
     private $url_parameter_2;
 
     /**
+     *
      * @var null Parameter three of the URL *
      */
     private $url_parameter_3;

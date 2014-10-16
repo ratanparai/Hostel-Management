@@ -10,7 +10,7 @@ class LoginModel
 
     /**
      * Get and save the database connection that was passed
-     * 
+     *
      * @param Database $db
      *            Dababase connection object
      */
@@ -21,7 +21,7 @@ class LoginModel
 
     /**
      * Login process.
-     * 
+     *
      * @return bool Success state
      */
     public function login()

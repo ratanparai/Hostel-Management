@@ -32,6 +32,3 @@ function autoload($class)
  * as I created this function above, every time a file is needed, autoload(TheNeededClass) is called.
  */
 spl_autoload_register("autoload");
-
-?>
-

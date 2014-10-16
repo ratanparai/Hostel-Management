@@ -36,7 +36,7 @@ class Controller
 
     /**
      * Load's the model with the given name
-     * 
+     *
      * @param string $name
      *            Name of the model, first letter capital
      * @return object Newly created model object
@@ -61,8 +61,9 @@ class Controller
 
     /**
      * Sample output to json formate .
+     *
      * This is still in test mode. need more work
-     * 
+     *
      * @return string
      */
     public function generateErrorJson()

@@ -68,7 +68,7 @@ define('DB_PASS', 'toor');
  * Don't change this if you don't know what you do.
  *
  * To get more information about the best cost factor please have a look here
- * 
+ *
  * @see http://stackoverflow.com/q/4443476/1114320
  */
 
@@ -87,4 +87,3 @@ define("FEEDBACK_NO_USER", "No user available in this ID");
 define('FEEDBACK_LOGIN_SUCCESSFUL', "Login Successfull");
 define('FEEDBACK_WRONG_PASSWORD', "Wrong Password");
 
-?>

@@ -29,7 +29,7 @@ class login extends Controller implements ControllerInterface
      * this take an optional bool parameter to check if we want json output.
      * this output
      * formate is required for ajax call of the login method
-     * 
+     *
      * @param bool $json
      *            If you want the output to json formate
      */

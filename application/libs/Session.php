@@ -2,7 +2,7 @@
 
 /**
  * Session class
- * 
+ *
  * handles the session stuff. Creates session when no one exits, set and
  * get values, and closes the session properly (=logout). Those methods
  * are STATIC, which means we can call them with Session::get(XX)
@@ -23,7 +23,7 @@ class Session
 
     /**
      * sets a specific value to a specific key of the session
-     * 
+     *
      * @param mixed $key            
      * @param mixed $value            
      */
@@ -34,7 +34,7 @@ class Session
 
     /**
      * gets/return the value of a specific key of the session
-     * 
+     *
      * @param mixed $key
      *            Usally a string.
      * @return mixed Value of the session $key
@@ -54,5 +54,3 @@ class Session
         session_destroy();
     }
 }
-
-?>
