@@ -20,7 +20,8 @@ class Index extends Controller implements ControllerInterface
      * Handle when the user move to .
      *
      * ./index/index or ../index (both are same) or just the URL.
-     * checked in the Application class and send it to the controller if no valid controller is selected.
+     * checked in the Application class and send it to the controller if no valid
+     * controller is selected.
      */
     public function Index()
     {
