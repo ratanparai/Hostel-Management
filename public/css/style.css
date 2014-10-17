@@ -1,0 +1,276 @@
+/**
+ * Every element will get this property
+ * this will make every column auto resize its property
+ * depending on their padding and margin
+ * TODO need revision
+ */
+*, *:after, *:before {
+	box-sizing:border-box;
+}
+
+body {
+	background: white;
+	color: #222222;
+	font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+	
+}
+
+.left {
+	float: left !important;
+}
+
+.right {
+	float: right !important;
+}
+
+.hide {
+	display: none;
+}
+
+.row {
+	width: 100%;
+	margin-left:auto;
+	margin-right:auto;
+	margin-bottom:0;
+	margin-top:0; }
+	.row:before .row:after {
+		display: table;
+	}
+	.row:after {
+		clear:both;
+	}
+.columns {
+	padding-left: 0.9375rem;
+	padding-right: 0.9375rem;
+	float: left;
+	width: 100%;
+}
+
+
+/**
+ * Stylesheet for mobile display
+ * size : small screen
+ */
+@media only screen {
+	.small-1 {
+		width: 8.33333%;
+	}
+	
+	.small-2 {
+		width: 16.66667%;
+	}
+	
+	.small-3 {
+		width: 25%;
+	}
+	
+	.small-4 {
+		width: 33.33333%;
+	}
+	
+	.small-5 {
+		width: 41.66667%;
+	}
+	
+	.small-6 {
+		width: 50%;
+	}
+	
+	.small-7 {
+		width: 58.33333%;
+	}
+	
+	.small-8 {
+		width: 66.66667%;
+	}
+	
+	.small-9 {
+		width: 75%;
+	}
+	
+	.small-10 {
+		width: 83.33333%;
+	}
+	
+	.small-11 {
+		width: 91.66664%;
+	}
+	
+	.small-12 {
+		width: 100%;
+	}
+}
+
+/**
+ * For tablet of small screen computer monitor
+ * size : medium
+ */		
+@media only screen and (min-width: 40.063em) {
+	.medium-1 {
+		width: 8.33333%;
+	}
+	
+	.medium-2 {
+		width: 16.66667%;
+	}
+	
+	.medium-3 {
+		width: 25%;
+	}
+	
+	.medium-4 {
+		width: 33.33333%;
+	}
+	
+	.medium-5 {
+		width: 41.66667%;
+	}
+	
+	.medium-6 {
+		width: 50%;
+	}
+	
+	.medium-7 {
+		width: 58.33333%;
+	}
+	
+	.medium-8 {
+		width: 66.66667%;
+	}
+	
+	.medium-9 {
+		width: 75%;
+	}
+	
+	.medium-10 {
+		width: 83.33333%;
+	}
+	
+	.medium-11 {
+		width: 91.66664%;
+	}
+	
+	.medium-12 {
+		width: 100%;
+	}
+}
+
+/**
+ * for large resolution display
+ * size : large
+ */
+@media only screen and (min-width: 64.063em) {
+	.medium-1 {
+		width: 8.33333%;
+	}
+	
+	.medium-2 {
+		width: 16.66667%;
+	}
+	
+	.medium-3 {
+		width: 25%;
+	}
+	
+	.medium-4 {
+		width: 33.33333%;
+	}
+	
+	.medium-5 {
+		width: 41.66667%;
+	}
+	
+	.medium-6 {
+		width: 50%;
+	}
+	
+	.medium-7 {
+		width: 58.33333%;
+	}
+	
+	.medium-8 {
+		width: 66.66667%;
+	}
+	
+	.medium-9 {
+		width: 75%;
+	}
+	
+	.medium-10 {
+		width: 83.33333%;
+	}
+	
+	.medium-11 {
+		width: 91.66664%;
+	}
+	
+	.medium-12 {
+		width: 100%;
+	}
+}
+
+/**
+ * Panel class to check backgroud
+ */
+.panel {
+	background:#CCC;
+	border-color: #666;
+	padding: 1.25rem;
+	margin-bottom: 1.25rem;
+}
+
+input {
+	  -webkit-appearance: none;
+  -webkit-border-radius: 0px;
+  background-color: white;
+  font-family: inherit;
+  border-style: solid;
+  border-width: 1px;
+  border-color: #cccccc;
+  box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.1);
+  color: rgba(0, 0, 0, 0.75);
+  display: block;
+  font-size: 0.875rem;
+  margin: 0 0 1rem 0;
+  padding: 0.5rem;
+  height: 2.3125rem;
+  width: 100%;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
+  transition: box-shadow 0.45s, border-color 0.45s ease-in-out; 
+}
+
+input:hover {
+	box-shadow: 0 0 5px #999999;
+    border-color: #999999; 
+}
+
+button, .button {
+  border-style: solid;
+  border-width: 0px;
+  cursor: pointer;
+  font-family: "Helvetica Neue", Helvetica, Roboto, Arial, sans-serif;
+  font-weight: normal;
+  line-height: normal;
+  margin: 0 0 1.25rem;
+  position: relative;
+  text-decoration: none;
+  text-align: center;
+  -webkit-appearance: none;
+  -webkit-border-radius: 0;
+  display: inline-block;
+  padding-top: 1rem;
+  padding-right: 2rem;
+  padding-bottom: 1.0625rem;
+  padding-left: 2rem;
+  font-size: 1rem;
+  background-color: #008cba;
+  border-color: #007095;
+  color: white;
+  transition: background-color 300ms ease-out; 
+}
+button:hover, button:focus, .button:hover, .button:focus {
+    background-color: #007095; }
+  button:hover, button:focus, .button:hover, .button:focus {
+    color: white; }
