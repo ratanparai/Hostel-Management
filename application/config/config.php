@@ -21,7 +21,7 @@ ini_set("display_errors", 1);
  * if you are using a port(other than 80),then put this in here, like http://mydomain:8888/subfolder/
  * Note: The trailing slash is important
  */
-define('URL', 'http://localhost/hostel/');
+define('URL', 'http://127.0.0.1/hostel/');
 
 /**
  * Configuration for: Folders
