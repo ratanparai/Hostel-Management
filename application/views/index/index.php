@@ -1,3 +1,4 @@
+<<<<<<< .merge_file_a07624
 <div class="row">
 	<div class="small-12 medium-6 columns">
     	<div class="panel">

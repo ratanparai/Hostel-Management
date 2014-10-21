@@ -3,29 +3,34 @@
 /**
  * Configuration
  *
- * For more info about constants please @see http://php.net/manual/en/function.define.php
+ * For more info about constants please
+ * @see http://php.net/manual/en/function.define.php
  * If you want to know why we use "define" instead of "const"
  * @see http://stackoverflow.com/q/2447791/1114320
  */
 
 /**
  * Configuration for: Error reporting
- * useful to show every little problem during development, but only show hard errors in production
+ * useful to show every little problem during development, but only show hard
+ * errors in production
  */
 error_reporting(E_ALL);
 ini_set("display_errors", 1);
 
 /**
  * Configuration for: Base URL
- * This is the base url of our app. if you go live with the app, put your full domain name here.
- * if you are using a port(other than 80),then put this in here, like http://mydomain:8888/subfolder/
+ * This is the base url of our app.
+ * if you go live with the app, put your full domain name here.
+ * if you are using a port(other than 80),then put this in here,
+ * like http://mydomain:8888/subfolder/
  * Note: The trailing slash is important
  */
 define('URL', 'http://192.168.137.1/hostel/');
 
 /**
  * Configuration for: Folders
- * Here we define where our folders are. There is no need to change this part unless you have renamed them.
+ * Here we define where our folders are.
+ * There is no need to change this part unless you have renamed them.
  */
 define('LIBS_PATH', 'application/libs/');
 define('CONTROLLERS_PATH', 'application/controllers/');
@@ -47,26 +52,30 @@ define('DB_USER', 'root');
 // password for the above user
 define('DB_PASS', 'toor');
 
-
 /**
  * Configuration for: Hashing strength
- * This is the place where you define the strength of your password hashing/salting
+ * This is the place where you define the strength of your password
+ * hashing/salting
  *
- * To make password encryption very safe and future-proof, the PHP 5.5 hashing/salting functions
- * come with a clever so called COST FACTOR. This number defines the base-2 logarithm of the rounds of hashing,
- * something like 2^12 if your cost factor is 12. By the way, 2^12 would be 4096 rounds of hashing, doubling the
- * round with each increase of the cost factor and therefore doubling the CPU power it needs.
- * Currently, in 2013, the developers of this functions have chosen a cost factor of 10, which fits most standard
- * server setups. When time goes by and server power becomes much more powerful, it might be useful to increase
- * the cost factor, to make the password hashing one step more secure. Have a look here
- * (@see https://github.com/panique/php-login/wiki/Which-hashing-&-salting-algorithm-should-be-used-%3F)
- * in the BLOWFISH benchmark table to get an idea how this factor behaves. For most people this is irrelevant,
- * but after some years this might be very very useful to keep the encryption of your database up to date.
+ * To make password encryption very safe and future-proof, the PHP 5.5
+ * hashing/salting functions come with a clever so called COST FACTOR. This
+ * number defines the base-2 logarithm of the rounds of hashing, something like
+ * 2^12 if your cost factor is 12. By the way, 2^12 would be 4096 rounds of
+ * hashing, doubling the round with each increase of the cost factor and
+ * therefore doubling the CPU power it needs. Currently, in 2013, the developers
+ * of this functions have chosen a cost factor of 10, which fits most standard
+ * server setups. When time goes by and server power becomes much more powerful,
+ * it might be useful to increase the cost factor, to make the password hashing
+ * one step more secure. Have a look here (@see https://github.com/panique/php-login/wiki/Which-hashing-&-salting-algorithm-should-be-used-%3F)
+ * in the BLOWFISH benchmark table to get an idea how this factor behaves. For
+ * most people this is irrelevant, but after some years this might be very very
+ * useful to keep the encryption of your database up to date.
  *
- * Remember: Every time a user registers or tries to log in (!) this calculation will be done.
- * Don't change this if you don't know what you do.
+ * Remember: Every time a user registers or tries to log in (!) this calculation
+ * will be done. Don't change this if you don't know what you do.
  *
  * To get more information about the best cost factor please have a look here
+ *
  * @see http://stackoverflow.com/q/4443476/1114320
  */
 
@@ -85,4 +94,3 @@ define("FEEDBACK_NO_USER", "No user available in this ID");
 define('FEEDBACK_LOGIN_SUCCESSFUL', "Login Successfull");
 define('FEEDBACK_WRONG_PASSWORD', "Wrong Password");
 
-?>
