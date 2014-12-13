@@ -15,7 +15,7 @@
  * errors in production
  */
 error_reporting(E_ALL);
-ini_set("display_errors", 1);
+ini_set("display_errors", 0);
 
 /**
  * Configuration for: Base URL
@@ -90,7 +90,30 @@ define('DB_PASS', 'toor');
  */
 define("FEEDBACK_EMPTY_USERNAME", "Username field was empty");
 define("FEEDBACK_EMPTY_PASSWORD", "Password field was empty");
+define("FEEDBACK_EMPTY_NAME", "Name field was empty");
+define("FEEDBACK_EMPTY_DEPARTMENT", "Department field was empty");
+define("FEEDBACK_EMPTY_EMAIL", "Email field is empty");
+define("FEEDBACK_ACCOUNT_CREATING_FAILED", "Account creation failed. please go back and try again");
+define("FEEDBACK_ACCOUNT_CREATED", "The account have successfully created");
+
+define("FEEDBACK_INVALID_USERNAME", "ID is invalid. please provide id as: A111111.");
+define("FEEDBACK_INVALID_EMAIL", "Email address is invalid");
+
 define("FEEDBACK_NO_USER", "No user available in this ID");
-define('FEEDBACK_LOGIN_SUCCESSFUL', "Login Successfull");
+define('FEEDBACK_LOGIN_SUCCESSFUL', "Login Successful");
 define('FEEDBACK_WRONG_PASSWORD', "Wrong Password");
+
+/**
+ * ERROR CODE
+ */
+define("FEEDBACK_EMPTY_USERNAME_CODE", 10);
+define("FEEDBACK_EMPTY_PASSWORD_CODE", 11);
+define("FEEDBACK_NO_USER_CODE", 12);
+define("FEEDBACK_WRONG_PASSWORD_CODE", 13);
+
+/**
+ * SUCCESS CODEs
+ */
+define(FEEDBACK_LOGIN_SUCCESSFUL_CODE, 50);
+
 
