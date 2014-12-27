@@ -3,25 +3,30 @@
 <head>
     <title>IIUC hostel</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
     <!--  CSS  -->
-    <link rel="stylesheet" href="<?php echo URL; ?>/public/css/style.css" />
+    <link rel="stylesheet" href="<?php echo URL; ?>public/css/style.css" />
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="<?php echo URL; ?>public/css/bootstrap.min.css" />
+    <!-- Optional theme -->
+    <link rel="stylesheet" href="<?php echo URL; ?>public/css/bootstrap-theme.min.css" />
+
     <!--  jQuery and JavaScript -->
-    <script type="text/javascript" src="//code.jquery.com/jquery-2.0.3.min.js"></script>
-    <script type="text/javascript" src="<?php echo URL;?>/public/js/application.js"></script>
+    <script type="text/javascript" src="<?php echo URL;?>public/js/application.js"></script>
+    <!-- Bottstrap javascript -->
+    <script type="text/javascript" src="<?php echo URL;?>public/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<!-- logo and navigation stuff -->
-    <div class="row">
-    	<!-- logo -->
-    	<div class="small-12 medium-4 columns">
-        	<div class="panel">
-            	<p>LOGO</p>
-            </div>
+<div class="container">
+<div class="row">
+    <div class="col-xs-3 col-sm-2 col-md-1">
+        <div class="logo">
+            <img alt="" src="<?php echo URL;?>public/img/logo.png"/>
+
         </div>
-        <!-- navigation -->
-        <div class="small-12 medium-8 columns">
-        	<div class="panel">
-            	<p>navigation: <?php echo URL; ?></p>
-            </div>
-        </div>
+
     </div>
+    <div class="col-xs-9 col-sm-10 col-md-11">
+        <h1>My hostel</h1>
+    </div>
+</div>

@@ -45,10 +45,10 @@ class Application
     public function __construct()
     {
         $this->spiltUrl();
-        
+
         // For debug: uncomment the line line bellow.
         // echo "Controller: {$this->url_controller}, Action: {$this->url_action}";
-        
+
         // check for controller: is the url_controller NOT empty?
         if ($this->url_controller) {
             // check for cotroller: does such controller exist ?
@@ -57,7 +57,7 @@ class Application
                 // example: if the controller is car, then this line would translate into $this->car = new car();
                 require CONTROLLERS_PATH . $this->url_controller . '.php';
                 $this->url_controller = new $this->url_controller();
-                
+
                 // check for method: does such a method exist in the controller ?
                 if ($this->url_action) {
                     if (method_exists($this->url_controller, $this->url_action)) {
@@ -100,18 +100,17 @@ class Application
     {
         // the url will pass as a $_GET['url']. the process is done by
         // the .htaccess file.
-        // TODO: create .htaccess file and add rule.
         if (isset($_GET['url'])) {
             // echo $_GET['url'];
-            
+
             // Trim the last '/' from the url
             // so the http://example.com/sample/ will be http://example.com/sample
             $url = rtrim($_GET['url'], '/');
-            
+
             $url = filter_var($url, FILTER_SANITIZE_URL);
-            
+
             $url = explode('/', $url);
-            
+
             // Put URL parts into the appropiate properties.
             $this->url_controller = (isset($url[0])) ? $url[0] : null;
             $this->url_action = (isset($url[1])) ? $url[1] : null;

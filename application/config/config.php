@@ -15,7 +15,7 @@
  * errors in production
  */
 error_reporting(E_ALL);
-ini_set("display_errors", 0);
+ini_set("display_errors", 1);
 
 /**
  * Configuration for: Base URL
@@ -25,7 +25,7 @@ ini_set("display_errors", 0);
  * like http://mydomain:8888/subfolder/
  * Note: The trailing slash is important
  */
-define('URL', 'http://192.168.137.1/hostel/');
+define('URL', 'http://localhost/hostel/');
 
 /**
  * Configuration for: Folders
@@ -114,6 +114,6 @@ define("FEEDBACK_WRONG_PASSWORD_CODE", 13);
 /**
  * SUCCESS CODEs
  */
-define(FEEDBACK_LOGIN_SUCCESSFUL_CODE, 50);
+define("FEEDBACK_LOGIN_SUCCESSFUL_CODE", 50);
 
 
