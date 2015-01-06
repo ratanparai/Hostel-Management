@@ -16,3 +16,8 @@
 	border-bottom: 1px solid #eee;
 	
 }
+
+#carousel {
+	height : 400px;
+	overflow: hidden;
+}

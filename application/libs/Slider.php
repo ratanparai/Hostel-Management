@@ -25,13 +25,18 @@ class Slider {
           <!-- Wrapper for slides -->
           <div class="carousel-inner" role="listbox">
             <div class="item active">
-              <img src="<?php echo URL;?>public/img/hostel_front_page.jpg" alt="">
+              <img src="<?php echo URL;?>public/img/hostel_front_1.jpg" alt="" width="100%">
               <div class="carousel-caption">
                 My hostel
               </div>
             </div>
             <div class="item">
-              <img src="<?php echo URL;?>public/img/hostel_front_page.jpg" alt="">
+              <img src="<?php echo URL;?>public/img/hostel_front_2.jpg" alt="" width="100%">
+              <div class="carousel-caption">
+              </div>
+            </div>
+            <div class="item">
+              <img src="<?php echo URL;?>public/img/hostel_front_page.jpg" alt="" width="100%">
               <div class="carousel-caption">
               </div>
             </div>
