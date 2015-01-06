@@ -71,7 +71,7 @@ class Controller
         $feedback = array();
 
         // if there is any negative feedback avaiable
-        if($_SESSION['feedback_negative'] != null) {
+        if(isset($_SESSION['feedback_negative']) && $_SESSION['feedback_negative'] != null) {
             $feedback[] = array(
                 "message" => $_SESSION['feedback_negative']['message'],
                 "code"    => $_SESSION['feedback_negative']['code']

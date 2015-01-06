@@ -42,6 +42,7 @@ class LoginModel
 
         // prepare the query
         $sth = $this->db->prepare("SELECT	user_id,
+                                    user_name,
 								   	user_email,
 								   	user_password_hash,
                                     first_time
@@ -74,6 +75,15 @@ class LoginModel
             if ($_POST['password'] === $result->user_password_hash) {
                 $_SESSION['feedback_possitive']['message'] = FEEDBACK_LOGIN_SUCCESSFUL;
                 $_SESSION['feedback_possitive']['code'] = FEEDBACK_LOGIN_SUCCESSFUL_CODE;
+
+                // login success. set session data
+                Session::init();
+                Session::set('user_logged_in', true);
+                Session::set('user_id', $result->user_id);
+                Session::set('user_name', $result->user_name);
+                Session::set('user_email', $result->user_email);
+                Session::set('first_time', $result->first_time);
+
                 return true;
             } else {
                 $_SESSION['feedback_negative']['message'] = FEEDBACK_WRONG_PASSWORD;
@@ -86,6 +96,15 @@ class LoginModel
             if (password_verify($_POST['password'], $result->user_passwork_hash)) {
                 $_SESSION['feedback_possitive']['message'] = FEEDBACK_LOGIN_SUCCESSFUL;
                 $_SESSION['feedback_possitive']['code'] = FEEDBACK_LOGIN_SUCCESSFUL_CODE;
+
+                // login successful. now set session data and then return true
+                Session::init();
+                Session::set('user_logged_in', true);
+                Session::set('user_id', $result->user_id);
+                Session::set('user_name', $result->user_name);
+                Session::set('user_email', $result->user_email);
+                Session::set('first_time', $result->first_time);
+
                 return true;
             } else {
                 $_SESSION['feedback_negative']['message'] = FEEDBACK_WRONG_PASSWORD;
@@ -95,6 +114,15 @@ class LoginModel
         }
 
 
+    }
+
+    /**
+     * This will logout the current user by deleting the session data.
+     */
+    public function logout()
+    {
+        // delete the session
+        Session::destroy();
     }
 
     /**

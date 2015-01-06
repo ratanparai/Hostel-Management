@@ -29,23 +29,33 @@ class View
         require VIEWS_PATH . '_templates/footer.php';
     }
 
-/**
- * Checks if the passed string is the currently active controller.
- * Usefull for handling the navigation's active/non-active link.
- *
- * @param string $filename            
- * @param string $navigation_controller            
- * @return bool Shows if the controller is used or not.
- *        
- *         private function checkForActiveController($filename, $navigation_controller)
- *         {
- *         $spilt_filename = explode('/', $filename);
- *         $active_controller = $spilt_filename[0];
- *        
- *         if($active_controller == $navigation_controller) {
- *         return true;
- *         }
- *         return false;
- *         }
- */
+    /**
+     * Checks if the passed string is the currently active controller-action (=method).
+     * Useful for handling the navigation's active/non-active link.
+     * @param string $filename
+     * @param string $navigation_action
+     * @return bool Shows if the action/method is used or not
+     */
+    public function checkForActiveAction($filename, $navigation_action)
+    {
+        $split_filename = explode("/", $filename);
+        $active_action = $split_filename[1];
+
+        if ($active_action == $navigation_action) {
+            return true;
+        }
+        // default return of not true
+        return false;
+    }
+
+    public function checkForActiveController($filename, $navigation_controller) {
+        $split_filename = explode("/", $filename);
+        $active_controller = $split_filename[0];
+
+        if ($active_controller == $navigation_controller) {
+            return true;
+        }
+        // default return of not true
+        return false;
+    }
 }

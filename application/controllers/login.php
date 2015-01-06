@@ -60,6 +60,14 @@ class login extends Controller implements ControllerInterface
         }
     }
 
+    function logout()
+    {
+        $login_model = $this->loadModel('Login');
+        $login_model->logout();
+        // redirect user to base URL
+        header('location: ' . URL);
+    }
+
     public function register()
     {
         // show the register view
