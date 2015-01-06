@@ -43,7 +43,7 @@
                     <a href="<?php echo URL;?>home">Home</a>
                 </li>
                 <li>
-                    <a href="#">Message</a>
+                    <a href="#">Message<span class="badge">42</span></a>
                 </li>
             <?php } ?>
                 <li>
@@ -53,7 +53,7 @@
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="true">Contact</a>
                     <ul class="dropdown-menu" role="menu">
                         <li>
-                        <a href="#">What?</a>
+                        <a href="#">Level: <?php echo Session::get('access_level');?></a>
                         </li>
                     </ul>
                 </li>
@@ -61,7 +61,13 @@
                 <li <?php if($this->checkForActiveController($filename, "login")) {echo "class='active'";} ?>>
                     <a href="<?php echo URL; ?>login">Login</a>
                 </li>
-                <?php } else { ?>
+                <?php } else {
+                    if(Session::get('access_level') >= 1) {
+                    ?>
+                <li>
+                    <a href="<?php echo URL; ?>admin">Admin Panel</a>
+                </li>
+                <?php } ?>
                 <li>
                     <a href="<?php echo URL;?>login/logout">Logout</a>
                 </li>
@@ -73,8 +79,5 @@
     <!-- /.container -->
 </nav>
 
-<span class="divider"/>
 
-<!--  Page Content -->
-<div class="container">
 

@@ -1,5 +1,7 @@
-
-
+html, body { height: 100%; width: 100%; margin: 0; }
+/*
+// LOGIN PAGE SECTION
+*/
 .logo img {
 	height: 60px;
 	margin: 10px 0 10px 10px;
@@ -17,7 +19,46 @@
 	
 }
 
-#carousel {
-	height : 400px;
-	overflow: hidden;
+/*
+ FRONT PAGE : INDEX SECTION
+*/
+.short-info {
+	margin-top:55px;
 }
+
+.short-info-part{
+	padding: 15px;
+}
+
+.short-info-message{
+	border: 1px solid #ddd;
+    border-radius: 4px;
+    padding: 10px;
+}
+
+.short-info-message h3{
+	padding-bottom: 5px;
+    border-bottom: 1px solid #eee;
+    text-align: center;
+}
+
+/* Home Page Carousel */
+
+.carousel {
+    height: 60%;
+}
+
+.carousel .item,
+.carousel .item.active,
+.carousel .carousel-inner {
+    height: 100%;
+}
+
+.carousel .fill {
+    width: 100%;
+    height: 100%;
+    position: center;
+    size: cover;
+}
+
+

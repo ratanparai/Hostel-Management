@@ -45,7 +45,8 @@ class LoginModel
                                     user_name,
 								   	user_email,
 								   	user_password_hash,
-                                    first_time
+                                    first_time,
+                                    access_level
 				 			FROM	users
 							WHERE	user_name = :user_name");
 
@@ -83,6 +84,7 @@ class LoginModel
                 Session::set('user_name', $result->user_name);
                 Session::set('user_email', $result->user_email);
                 Session::set('first_time', $result->first_time);
+                Session::set('access_level', $result->access_level);
 
                 return true;
             } else {
@@ -104,6 +106,7 @@ class LoginModel
                 Session::set('user_name', $result->user_name);
                 Session::set('user_email', $result->user_email);
                 Session::set('first_time', $result->first_time);
+                Session::set('access_level', $result->access_level);
 
                 return true;
             } else {

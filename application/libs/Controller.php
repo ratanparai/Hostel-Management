@@ -86,10 +86,23 @@ class Controller
             return json_encode($return);
         } else {
 
-            $feedback[] = array(
-                "message" => $_SESSION['feedback_possitive']['message'],
-                "code"    => $_SESSION['feedback_possitive']['code']
-            );
+            // if this is login attempt then send access level with it
+            // after successful login
+            if($_SESSION['feedback_possitive']['code'] == 50) {
+                $feedback[] = array(
+                    "message" => $_SESSION['feedback_possitive']['message'],
+                    "code"    => $_SESSION['feedback_possitive']['code'],
+                    "access_level" => Session::get('access_level')
+                );
+
+            // else send general replay
+            } else {
+                $feedback[] = array(
+                    "message" => $_SESSION['feedback_possitive']['message'],
+                    "code"    => $_SESSION['feedback_possitive']['code']
+                );
+            }
+
 
 
             $return = array(
