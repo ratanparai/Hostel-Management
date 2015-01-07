@@ -49,5 +49,14 @@ $(document).ready(function(){
 		});
 	});
 	
+	/**
+	 * When a user hit enter after entering pass then the 
+	 * login button click event will kick-in.
+	 */
+	$('#password').keyup(function(event) {
+		if(event.keyCode == 13) {
+			$('#login').click();
+		}
+	});
 
 });
