@@ -11,6 +11,9 @@ class Profile extends Controller implements ControllerInterface
 {
     public function __construct(){
         parent::__construct();
+
+        // this will only give logged in user access to the profile controller
+        Auth::isLoggedin();
     }
 
     public function index(){

@@ -16,6 +16,10 @@ class Admin extends Controller implements ControllerInterface
      */
     public function __construct() {
         parent::__construct();
+
+        // This will give permission to only admin to go forward with this
+        // controller
+        Auth::isAdmin();
     }
 
     /**
