@@ -21,7 +21,7 @@
 <body>
 
 <!-- Navigation -->
-<nav class="navbar navbar-inverse" role="navigation">
+<nav class="navbar navbar-default" role="navigation">
     <div class="container">
         <!-- Brand and toggle get grouped for better mobile display -->
         <div class="navbar-header">
@@ -49,7 +49,7 @@
                 <li>
                     <a href="#">About</a>
                 </li>
-                <li>
+                <li class="dropdown">
                     <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="true">Contact</a>
                     <ul class="dropdown-menu" role="menu">
                         <li>
@@ -64,8 +64,13 @@
                 <?php } else {
                     if(Session::get('access_level') >= 1) {
                     ?>
-                <li>
-                    <a href="<?php echo URL; ?>admin">Admin Panel</a>
+                <li  <?php if($this->checkForActiveController($filename, "admin")) {echo "class='active'";} ?>>
+                    <a href="<?php echo URL; ?>admin" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="true" >Admin Panel</a>
+                    <ul class="dropdown-menu" role="menu">
+                        <li>
+                            <a href="<?php echo URL;?>admin/adduser">Users</a>
+                        </li>
+                    </ul>
                 </li>
                 <?php } ?>
                 <li>
