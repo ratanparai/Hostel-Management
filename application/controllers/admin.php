@@ -32,4 +32,8 @@ class Admin extends Controller implements ControllerInterface
     public function addUser() {
         $this->view->render('admin/addUser');
     }
+
+    public function viewUsers() {
+        $this->view->render('admin/viewUsers');
+    }
 }

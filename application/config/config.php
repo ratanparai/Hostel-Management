@@ -103,6 +103,9 @@ define("FEEDBACK_NO_USER", "No user available in this ID");
 define('FEEDBACK_LOGIN_SUCCESSFUL', "Login Successful");
 define('FEEDBACK_WRONG_PASSWORD', "Wrong Password");
 
+define("FEEDBACK_ALREADY_REGISTERED", "username is already registered");
+define("FEEDBACK_EMAIL_ALREADY_USED", "email adress is already used in another account");
+
 /**
  * ERROR CODE
  */
@@ -111,9 +114,19 @@ define("FEEDBACK_EMPTY_PASSWORD_CODE", 11);
 define("FEEDBACK_NO_USER_CODE", 12);
 define("FEEDBACK_WRONG_PASSWORD_CODE", 13);
 
+define("FEEDBACK_ACCOUNT_CREATING_FAILED_CODE", 14);
+define("FEEDBACK_INVALID_USERNAME_CODE", 15);
+define("FEEDBACK_EMPTY_EMAIL_CODE", 16);
+define("FEEDBACK_INVALID_EMAIL_CODE", 17);
+
+define("FEEDBACK_ALREADY_REGISTERED_CODE", 18);
+define("FEEDBACK_EMAIL_ALREADY_USED_CODE", 19);
+
 /**
  * SUCCESS CODEs
  */
 define("FEEDBACK_LOGIN_SUCCESSFUL_CODE", 50);
+
+define("FEEDBACK_ACCOUNT_CREATED_CODE", 51);
 
 

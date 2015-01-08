@@ -58,5 +58,41 @@ $(document).ready(function(){
 			$('#login').click();
 		}
 	});
+	
+	/**
+	 * User registration event handler
+	 */
+	$('#register').click(function(){
+		var username = $('#username').val();
+		var email = $('#email').val();
+		var access_level = $('#access_level').val();
+		
+		
+		//alert(username+" "+email+" "+access_level);
+		//var dataString = "username=" + username + "&email=" + email + "&access_level=" + access_level;
+		//alert(dataString);
+		$.post("http://localhost/hostel/login/register_action", 
+				{
+					username : username, 
+					email: email, 
+					access_level: access_level
+				}, function(data){
+					 if(data.errors) {
+						 $('.add-user-message').removeClass("alert alert-success");
+						 $('.add-user-message').addClass("alert alert-danger");
+						 $('.add-user-message').html(data.errors[0].message);
+						 $('.add-user-message').css("visibility","visible");
+					 } else {
+						 $('.add-user-message').removeClass("alert alert-danger");
+						 $('.add-user-message').addClass("alert alert-success");
+						 $('.add-user-message').html(data.success[0].message);
+						 $('.add-user-message').css("visibility","visible");
+					 }
+					 
+					
+				}, "json"
+		);
+		
+	})
 
 });

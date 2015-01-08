@@ -102,6 +102,7 @@ class LoginModel
                 // login successful. now set session data and then return true
                 Session::init();
                 Session::set('user_logged_in', true);
+                Session::set('id', $result->id);
                 Session::set('user_id', $result->user_id);
                 Session::set('user_name', $result->user_name);
                 Session::set('user_email', $result->user_email);
@@ -138,17 +139,58 @@ class LoginModel
     {
         // perform all necessary form checks
         if(empty($_POST['username'])) {
-            $_SESSION['feedback_negative'][] = FEEDBACK_EMPTY_USERNAME;
-        } elseif (!preg_match("/([a-zA-Z)(\d{6})$/i", $_POST['username'])) {
-            $_SESSION['feedback_negative'][] = FEEDBACK_INVALID_USERNAME;
+            $_SESSION['feedback_negative']['message'] = FEEDBACK_EMPTY_USERNAME;
+            $_SESSION['feedback_negative']['code'] = FEEDBACK_EMPTY_USERNAME_CODE;
+
+        } elseif (!preg_match("/([a-zA-Z])(\d{6})$/i", $_POST['username'])) {
+            $_SESSION['feedback_negative']['message'] = FEEDBACK_INVALID_USERNAME;
+            $_SESSION['feedback_negative']['code'] = FEEDBACK_INVALID_USERNAME_CODE;
         } elseif (empty($_POST['email'])) {
-            $_SESSION['feedback_negative'][] = FEEDBACK_EMPTY_EMAIL;
+            $_SESSION['feedback_negative']['message'] = FEEDBACK_EMPTY_EMAIL;
+            $_SESSION['feedback_negative']['code'] = FEEDBACK_EMPTY_EMAIL_CODE;
         } elseif (!filter_var($_POST['email'], FILTER_VALIDATE_EMAIL)) {
-            $_SESSION['feedback_negative'][] = FEEDBACK_INVALID_EMAIL;
+            $_SESSION['feedback_negative']['message'] = FEEDBACK_INVALID_EMAIL;
+            $_SESSION['feedback_negative']['code'] = FEEDBACK_INVALID_EMAIL_CODE;
         } else {
             // clean the input and make the first later capital like c to C
             $username = ucfirst(strip_tags($_POST['username']));
             $email = strip_tags($_POST['email']);
+
+            // check if the user is already registered
+            $sql = "SELECT * FROM users WHERE user_name=:username";
+            $query = $this->db->prepare($sql);
+            $query->execute(array(
+                ':username' => $username
+            ));
+
+            if($query->rowCount() != 0) {
+                // user is already registered
+                $_SESSION['feedback_negative']['message'] = FEEDBACK_ALREADY_REGISTERED;
+                $_SESSION['feedback_negative']['code'] = FEEDBACK_ALREADY_REGISTERED_CODE;
+                return false;
+            }
+
+            // check if the email address is already used
+            $sql = "SELECT * FROM users WHERE user_email=:email";
+            $query = $this->db->prepare($sql);
+            $query->execute(array(
+                ':email' => $email
+            ));
+
+            if($query->rowCount() != 0) {
+                // user is already registered
+                $_SESSION['feedback_negative']['message'] = FEEDBACK_EMAIL_ALREADY_USED;
+                $_SESSION['feedback_negative']['code'] = FEEDBACK_EMAIL_ALREADY_USED_CODE;
+                return false;
+            }
+
+
+
+            if(empty($_POST['access_level'])) {
+                $access_level = 1;
+            } else {
+                $access_level = $_POST['access_level'];
+            }
 
             // Generate 5 digit integer password for the first time login and
             // compute its hash value
@@ -170,11 +212,16 @@ class LoginModel
             ));
 
             if($query->rowCount() != 1) {
-                $_SESSION['feedback_negative'][] = FEEDBACK_ACCOUNT_CREATING_FAILED;
+                $_SESSION['feedback_negative']['message'] = FEEDBACK_ACCOUNT_CREATING_FAILED;
+                $_SESSION['feedback_negative']['code'] = FEEDBACK_ACCOUNT_CREATING_FAILED_CODE;
                 return false;
             }
 
-            $_SESSION['feedback_possitive'][] = FEEDBACK_ACCOUNT_CREATED;
+            $_SESSION['feedback_possitive']['message'] = FEEDBACK_ACCOUNT_CREATED;
+            $_SESSION['feedback_possitive']['code'] = FEEDBACK_ACCOUNT_CREATED_CODE;
+
+            // TODO : send the password to the email address
+
             return true;
 
         }
