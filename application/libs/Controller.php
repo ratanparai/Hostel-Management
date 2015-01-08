@@ -11,14 +11,14 @@
  */
 class Controller
 {
-
+    
     // Testing private db object
     function __construct()
     {
         Session::init();
-
+        
         // TODO: cookie check, if needed
-
+        
         // create databse connection
         // we call call the database connection from any class that extends this
         // "Controller" class
@@ -27,7 +27,7 @@ class Controller
         } catch (PDOException $e) {
             die('Database connection could not be established.');
         }
-
+        
         // create a view object (that does nothing, but provide the view render() method)
         // we are gonna use this view object to create veiw
         // TODO: clearify documentation
@@ -44,16 +44,16 @@ class Controller
     public function loadModel($name)
     {
         $path = MODELS_PATH . strtolower($name) . '_model.php';
-
+        
         if (file_exists($path)) {
             // include the model
             require $path;
-
+            
             /**
              * All model class name is like "ExampleModel"
              */
             $modelName = ucfirst(strtolower($name)) . 'Model';
-
+            
             // return the new model object while passing the database connection to the model
             return new $modelName($this->db);
         }
@@ -62,6 +62,9 @@ class Controller
     /**
      * Sample output to json formate .
      *
+     *
+     *
+     *
      * This is still in test mode. need more work
      *
      * @return string
@@ -69,48 +72,46 @@ class Controller
     public function generateJsonFeedback()
     {
         $feedback = array();
-
+        
         // if there is any negative feedback avaiable
-        if(isset($_SESSION['feedback_negative']) && $_SESSION['feedback_negative'] != null) {
+        if (isset($_SESSION['feedback_negative']) && $_SESSION['feedback_negative'] != null) {
             $feedback[] = array(
                 "message" => $_SESSION['feedback_negative']['message'],
-                "code"    => $_SESSION['feedback_negative']['code']
+                "code" => $_SESSION['feedback_negative']['code']
             );
-
+            
             $return = array(
                 "errors" => $feedback
             );
-
+            
             $_SESSION['feedback_negative'] = null;
-
+            
             return json_encode($return);
         } else {
-
+            
             // if this is login attempt then send access level with it
             // after successful login
-            if($_SESSION['feedback_possitive']['code'] == 50) {
+            if ($_SESSION['feedback_possitive']['code'] == 50) {
                 $feedback[] = array(
                     "message" => $_SESSION['feedback_possitive']['message'],
-                    "code"    => $_SESSION['feedback_possitive']['code'],
+                    "code" => $_SESSION['feedback_possitive']['code'],
                     "access_level" => Session::get('access_level')
                 );
-
-            // else send general replay
+                
+                // else send general replay
             } else {
                 $feedback[] = array(
                     "message" => $_SESSION['feedback_possitive']['message'],
-                    "code"    => $_SESSION['feedback_possitive']['code']
+                    "code" => $_SESSION['feedback_possitive']['code']
                 );
             }
-
-
-
+            
             $return = array(
                 "success" => $feedback
             );
-
+            
             $_SESSION['feedback_possitive'] = null;
-
+            
             return json_encode($return);
         }
     }

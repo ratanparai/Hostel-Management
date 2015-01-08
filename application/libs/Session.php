@@ -24,8 +24,8 @@ class Session
     /**
      * sets a specific value to a specific key of the session
      *
-     * @param mixed $key
-     * @param mixed $value
+     * @param mixed $key            
+     * @param mixed $value            
      */
     public static function set($key, $value)
     {

@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Class ProfileModel
  * This class will do havy lifting of profile information from database to
@@ -8,22 +9,25 @@
  */
 class ProfileModel
 {
+
     /**
      * Get and save the database connection that is passed
+     *
      * @param Database $db
-     *                  Database connection object
+     *            Database connection object
      */
-    public function __construct(Database $db) {
+    public function __construct(Database $db)
+    {
         $this->db = $db;
     }
 
     /**
      * Get the profile info from the databse
      */
-    public function getProfileInfo() {
-
-        if(Session::get("full_name") == false) {
-
+    public function getProfileInfo()
+    {
+        if (Session::get("full_name") == false) {
+            
             $sql = "SELECT  full_name,
                             department,
                             current_gpa,
@@ -33,19 +37,19 @@ class ProfileModel
                             student_info
                         WHERE
                             id = :id";
-
+            
             $query = $this->db->prepare($sql);
-
+            
             $query->execute(array(
                 ":id" => Session::get("user_id")
             ));
-
-            if($query->rowCount() == 0) {
+            
+            if ($query->rowCount() == 0) {
                 return false;
             }
-
-            $result =  $query->fetch();
-
+            
+            $result = $query->fetch();
+            
             // set the session information from the collected information
             // from database
             Session::set("full_name", $result->full_name);
@@ -54,7 +58,5 @@ class ProfileModel
             Session::set("cgpa", $result->cgpa);
             Session::set("semester", $result->semester);
         }
-
     }
-
 }

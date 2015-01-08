@@ -15,7 +15,7 @@ class login extends Controller implements ControllerInterface
     {
         parent::__construct();
     }
-
+    
     /*
      * Index. default action / default "/login" page
      */
@@ -39,9 +39,9 @@ class login extends Controller implements ControllerInterface
         $LoginModel = $this->loadModel('Login');
         // run the login() method of the login_model and save its return state
         $success = $LoginModel->login();
-
+        
         if ($success) {
-
+            
             // check if we want json output or simple header redirect.
             if ($json) {
                 // json feedback successful output
@@ -69,7 +69,8 @@ class login extends Controller implements ControllerInterface
     /**
      * register action function to take care of the registration call
      *
-     * @param string $json optional to get output as json format;
+     * @param string $json
+     *            optional to get output as json format;
      */
     public function register_action($json = true)
     {
@@ -77,27 +78,26 @@ class login extends Controller implements ControllerInterface
         $LoginModel = $this->loadModel('Login');
         // run the registerNewUser
         $success = $LoginModel->registerNewUser();
-
+        
         // if success
-        if($success) {
+        if ($success) {
             // if json output wanted
-            if($json) {
+            if ($json) {
                 echo $this->generateJsonFeedback();
             } else {
                 // TODO: send admin to show all the register user or again
                 // to the register page if he needed to register more users.
             }
-
+            
             // if not successful
         } else {
             // check if we want json output
-            if($json) {
+            if ($json) {
                 echo $this->generateJsonFeedback();
             } else {
                 // do like redirect the user to the register page
                 header('Location: ' . URL . 'login/register');
             }
-
         }
     }
 }

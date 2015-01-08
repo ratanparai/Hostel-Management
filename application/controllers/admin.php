@@ -1,4 +1,5 @@
 <?php
+
 /**
  * Class Admin
  *
@@ -10,11 +11,13 @@
  */
 class Admin extends Controller implements ControllerInterface
 {
+
     /**
      * call the Controller construct function to init session and database
      * connection for this class.
      */
-    public function __construct() {
+    public function __construct()
+    {
         parent::__construct();
 
         // This will give permission to only admin to go forward with this
@@ -24,20 +27,24 @@ class Admin extends Controller implements ControllerInterface
 
     /**
      * (non-PHPdoc)
+     *
      * @see ControllerInterface::index()
      */
-    public function index(){
+    public function index()
+    {
         $this->view->render('admin/index');
     }
 
     /**
      * Controller for add user view
      */
-    public function addUser() {
+    public function addUser()
+    {
         $this->view->render('admin/addUser');
     }
 
-    public function viewUsers() {
+    public function viewUsers()
+    {
         $this->view->render('admin/viewUsers');
     }
 }

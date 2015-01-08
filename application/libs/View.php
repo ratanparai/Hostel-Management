@@ -32,15 +32,16 @@ class View
     /**
      * Checks if the passed string is the currently active controller-action (=method).
      * Useful for handling the navigation's active/non-active link.
-     * @param string $filename
-     * @param string $navigation_action
+     *
+     * @param string $filename            
+     * @param string $navigation_action            
      * @return bool Shows if the action/method is used or not
      */
     public function checkForActiveAction($filename, $navigation_action)
     {
         $split_filename = explode("/", $filename);
         $active_action = $split_filename[1];
-
+        
         if ($active_action == $navigation_action) {
             return true;
         }
@@ -48,10 +49,11 @@ class View
         return false;
     }
 
-    public function checkForActiveController($filename, $navigation_controller) {
+    public function checkForActiveController($filename, $navigation_controller)
+    {
         $split_filename = explode("/", $filename);
         $active_controller = $split_filename[0];
-
+        
         if ($active_controller == $navigation_controller) {
             return true;
         }

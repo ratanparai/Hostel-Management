@@ -4,7 +4,7 @@
  */
 echo Generate::generateDefaultPassword();
 
-if(preg_match("/([a-zA-Z])(\d{6})$/i", "C093503")) {
+if (preg_match("/([a-zA-Z])(\d{6})$/i", "C093503")) {
     echo "Valid id";
 } else {
     echo "inValid ID";

@@ -20,7 +20,7 @@ function autoload($class)
     if (file_exists(LIBS_PATH . $class . ".php")) {
         require LIBS_PATH . $class . ".php";
     } else {
-
+        
         /**
          * For development purpose using plain error.
          * TODO: Replace with Exception handling with error code.
@@ -31,7 +31,8 @@ function autoload($class)
 
 /**
  * sql_autoload_register defines the function that is called every time a file
- * is missing. as I created this function above, every time a file is needed,
+ * is missing.
+ * as I created this function above, every time a file is needed,
  * autoload(TheNeededClass) is called.
  */
 spl_autoload_register("autoload");
