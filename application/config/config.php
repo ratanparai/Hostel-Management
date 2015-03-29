@@ -50,7 +50,7 @@ define('DB_NAME', 'hostel');
 // database user
 define('DB_USER', 'root');
 // password for the above user
-define('DB_PASS', 'toor');
+define('DB_PASS', '');
 
 /**
  * Configuration for: Hashing strength
