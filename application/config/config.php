@@ -106,6 +106,8 @@ define('FEEDBACK_WRONG_PASSWORD', "Wrong Password");
 define("FEEDBACK_ALREADY_REGISTERED", "username is already registered");
 define("FEEDBACK_EMAIL_ALREADY_USED", "email adress is already used in another account");
 
+define("FEEDBACK_ACCOUNT_UPDATED", "Account update successful");
+
 /**
  * ERROR CODE
  */
@@ -128,5 +130,7 @@ define("FEEDBACK_EMAIL_ALREADY_USED_CODE", 19);
 define("FEEDBACK_LOGIN_SUCCESSFUL_CODE", 50);
 
 define("FEEDBACK_ACCOUNT_CREATED_CODE", 51);
+
+define("FEEDBACK_ACCOUnT_UPDATED_CODE", 52);
 
 

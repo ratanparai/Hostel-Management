@@ -93,6 +93,39 @@ $(document).ready(function(){
 				}, "json"
 		);
 		
-	})
+	});
+	
+	$('#updateprofile').click(function(){
+		var full_name = $('#full_name').val();
+		var email = $('#email').val();
+		
+		console.log(5 + 6);
+		
+		$.post("http://localhost/hostel/profile/updateAccountAction",
+				{
+					full_name : full_name,
+					email : email
+				}, function(data) {
+					console.log('printing data');
+					console.log(data);
+					
+					if(data.errors){
+						$('.add-user-message').removeClass("alert alert-success");
+						$('.add-user-message').addClass("alert alert-danger");
+						$('.add-user-message').html(data.errors[0].message);
+						$('.add-user-message').css("visibility","visible");
+					} else {
+						$('.add-user-message').removeClass("alert alert-danger");
+						$('.add-user-message').addClass("alert alert-success");
+						$('.add-user-message').html(data.success[0].message);
+						$('.add-user-message').css("visibility","visible");
+					}
+					
+				}, "json"
+		);
+		
+		console.log('function out');
+		
+	});
 
 });
