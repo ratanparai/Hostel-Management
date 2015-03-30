@@ -45,6 +45,8 @@ class Admin extends Controller implements ControllerInterface
 
     public function viewUsers()
     {
-        $this->view->render('admin/viewUsers');
+        $this->view->render('admin/viewUsers', array(
+            'users' => UserModel::getPublicProfilesOfAllUsers($this->db)
+        ));
     }
 }

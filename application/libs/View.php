@@ -21,9 +21,18 @@ class View
      *
      * @param string $filename
      *            Path of the to-be-rendered view, usally folder/file.php
+     * @param array $data
+     *            Data to be used in the view
      */
-    public function render($filename)
+    public function render($filename, $data=NULL)
     {
+
+        if($data) {
+            foreach ($data as $key => $value) {
+                $this->{$key} = $value;
+            }
+        }
+
         require VIEWS_PATH . '_templates/header.php';
         require VIEWS_PATH . $filename . '.php';
         require VIEWS_PATH . '_templates/footer.php';
@@ -33,15 +42,15 @@ class View
      * Checks if the passed string is the currently active controller-action (=method).
      * Useful for handling the navigation's active/non-active link.
      *
-     * @param string $filename            
-     * @param string $navigation_action            
+     * @param string $filename
+     * @param string $navigation_action
      * @return bool Shows if the action/method is used or not
      */
     public function checkForActiveAction($filename, $navigation_action)
     {
         $split_filename = explode("/", $filename);
         $active_action = $split_filename[1];
-        
+
         if ($active_action == $navigation_action) {
             return true;
         }
@@ -53,7 +62,7 @@ class View
     {
         $split_filename = explode("/", $filename);
         $active_controller = $split_filename[0];
-        
+
         if ($active_controller == $navigation_controller) {
             return true;
         }

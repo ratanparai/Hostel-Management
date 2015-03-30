@@ -10,17 +10,17 @@
 					<tr>
 						<th>user id</th>
 						<th>Name</th>
-						<th>Address</th>
 						<th>Email</th>
 						<th>Password</th>
 					</tr>
+					<?php foreach($this->users as $user) {?>
 					<tr>
-						<td>C093503</td>
-						<td>Ratan Sunder Parai</td>
-						<td>Rajbari</td>
-						<td>ratanparai@gmail.com</td>
-						<td>123456</td>
+						<td><?php echo $user->user_name; ?></td>
+						<td><?php echo ''; ?></td>
+						<td><?php echo $user->user_email;?></td>
+						<td><?php echo $user->user_password; ?></td>
 					</tr>
+					<?php } ?>
 				</table>
 			</div>
 		</div>
